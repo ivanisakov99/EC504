@@ -56,7 +56,9 @@ The Search operation becomes a one-line operation: splay the key to be searched 
 In this problem, we provide you with a main function topdownsplay.cpp, which contains a Class called SplayTree that implements a top-down splay tree, but
 is missing three key member functions:
 
-    Tree_node* Splay(int key, Tree_node* root), Tree_node* Right_Rotate(Tree_node* k2), Tree_node* Left_Rotate(Tree_node* k2)
+    Tree_node* Splay(int key, Tree_node* root) 
+    Tree_node* Right_Rotate(Tree_node* k2)
+    Tree_node* Left_Rotate(Tree_node* k2)
 
 SplayTree takes in a key value, and a pointer to the root of the splay tree as input, and performs a top-down splay operation on this key value, 
 returning the new root of the resulting splay tree. The other two functions take in the root of a a tree, and do a single rotation to the right or left, 
