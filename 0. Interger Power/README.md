@@ -1,0 +1,2 @@
+### <ins>Problem:</ins>
+The file myPower.cpp has four different functions to compute an integer power of a real number. This includes the standard pow() routine in the C++ standard library. The first function is the highly-optimized pow() function in the standard library. The second function proceeds linearly through the iterations, and is O(n). The third and fourth functions use a divide-and-conquer approach to speed up computation and are O(ln(n)). The fourth function uses tricks such as shifts and bit reads to gain speedup.
