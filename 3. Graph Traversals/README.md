@@ -3,6 +3,18 @@ In this problem, you will search two undirected Graphs, to find the connected co
 
 *An undirected graph G(V, E) is defined in terms of two arrays: First Vertex[0 : Vsize] and EdgeList[0 : Esize] that label the vertices from 0, 1, . . . , Vsize−1 and edges from 0, 1, . . . , Esize−1, respectively. The last “fake” vertex (First Vertex[Vsize] = Esize) points to the null “fake” edge with ”null” value ( Edge[Esize] = −1). This is the Forward Star data structure discussed in class.*
 
+Sample output for *graph_20_42.txt*:
+
+    8.625e-06
+    3
+    BFS Components: 
+    1	1	1	1	1	2	1	1	1	1	
+    3	1	1	1	1	1	1	1	1	1	
+    1.583e-06
+    DFS Components: 
+    1	1	1	1	1	2	1	1	1	1	
+    3	1	1	1	1	1	1	1	1	1       
+
 
 ### <ins>Problem 2: Searching Decision Graphs/N-Queen Problem</ins>
 There are many decision problems where finding a solution can be cast as a search problem in a graph of states. In this exercise, you will solve another large decision problem through implicit enumeration and search on the graph. Consider the classical 8 queens problem in chess: Given a chess board, how do you place 8 queens so that no two queens can capture each other? That is, each row must have only one queen, each column must have only one queen, and no two queens can be on the same diagonal.
