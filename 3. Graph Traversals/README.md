@@ -19,4 +19,4 @@ Note the following:
 * For an n × n board, a vertex in this problem can be characterized as a set of positions of queens on the board.
 * Assume that one is at a vertex which is at level k in the problem, so that there are Queens on the first k rows. Then, the children of this vertex have first k queens in the same position, plus one additional queen in column k + 1, but only if the additional queen is placed in a location where it cannot be captured. Thus, one has to check whether that position in the next level for that queen is one that cannot be captured by any of the queens in the previous columns.
 
-
+__This works for boards that are bigger than 3 by 3__
