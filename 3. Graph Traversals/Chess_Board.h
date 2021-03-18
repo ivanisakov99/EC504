@@ -44,7 +44,7 @@ bool Chess_Board::DFS(int row){  // Add queen to row...
 	bool found = false;
 	int NN = getSize();
 	//
-	//This is the key function you need to write, which does DFS row by row looking for a placement
+	//This function does DFS row by row looking for a placement
 	// where previous queens cannot capture the current position.
 	// This will use the goodMove function to check whether a queen position can be captured by 
 	// queens on the board in previous rows.
@@ -82,8 +82,8 @@ void Chess_Board::RemoveQueen(int i, int j){
 bool Chess_Board::goodMove(int irow, int jcol){ // square is not captured by queens...
       int row,col,min;
 	  //
-	  //  This is the other function you have to create.  It checks whether the square in row irow, column
-	  //  jcol can be captured by the existing queens on the board in rows 0 .. irow-1. 
+	  //	It checks whether the square in row irow, column
+	  //  	jcol can be captured by the existing queens on the board in rows 0 .. irow-1. 
 	  //
 	  //
 

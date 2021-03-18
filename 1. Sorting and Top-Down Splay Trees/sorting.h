@@ -38,7 +38,7 @@ void insertionsort(int a[],  int n){
 // Order Theta(NlogN) sorting
 void mergeSort(int a[], int a_tmp[], int l, int r)
 {
-  // you program this.  a_tmp can be used for merging 
+  // a_tmp can be used for merging 
   int i, j, k;
   if(r > l){
     int m = (l + r)/2;
@@ -65,7 +65,7 @@ void mergeSortblend(int a[], int a_tmp[], int l, int r)
   if(r <= l){
     return;
   }
- // You program this
+
  if(r - l > 32){
   int m = (l + r)/2;
   mergeSortblend(a, a_tmp, l, m);
@@ -97,7 +97,7 @@ void mergeSortblend(int a[], int a_tmp[], int l, int r)
 }
 
 bool checkInorder(int a[],int left, int right){
-  //checks  that a is in order from left to right
+  //checks that a is in order from left to right
   int tmp;
   for (int i = left; i < right; i++){
     if (a[i] > a[i+1]){
@@ -111,7 +111,6 @@ bool checkInorder(int a[],int left, int right){
 
 void simpleTimsort(int a[], int a_tmp[], int n)
 { 
-   //You program this
   const int RUN = 32;
   int runstack[n/32], num_in_stack = 0;
   runstack[num_in_stack] = 0;

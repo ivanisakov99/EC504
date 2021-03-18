@@ -24,10 +24,9 @@ class SplayTree{
         SplayTree(){
             }
 
-            // RR(Y rotates to the right
+            // RR(Y rotates to the right)
         Tree_node* Right_Rotate(Tree_node* k2){
-            // Single rotate the root k2 to the right
-            // You have to implement this, return the new root
+            // Single rotate the root k2 to the right return the new root
             Tree_node* k1 = k2->lchild;
             k2->lchild = k1->rchild;
             k1->rchild = k2;
@@ -36,8 +35,7 @@ class SplayTree{
         }
             // LL(Y rotates to the left)
         Tree_node* Left_Rotate(Tree_node* k2){
-            // Single rotate the root k2 to the left
-            // You have to implement this, return the new root.
+            // Single rotate the root k2 to the left return the new root.
             Tree_node* k1 = k2->rchild;
             k2->rchild = k1->lchild;
             k1->lchild = k2;
@@ -46,13 +44,12 @@ class SplayTree{
 
             // An implementation of top-down splay tree
 
-        Tree_node* Splay(int key, Tree_node* root)
-        {//This is one of the things you have to implement
+        Tree_node* Splay(int key, Tree_node* root){
 
             if (!root)
                 return NULL;
             Tree_node Tree;
-            /* .......*/
+    
             Tree.lchild = NULL;
             Tree.rchild = NULL;
 
@@ -139,7 +136,7 @@ class SplayTree{
                     root->rchild = NULL;
                     root = my_node;
                 }
-            else { /* it's already in tree, don't add it again*/
+            else { // it's already in tree, don't add it again
                 delete my_node;
                 return root;
             }

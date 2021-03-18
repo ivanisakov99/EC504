@@ -121,7 +121,7 @@ int find_connected_components_BFS(int *FirstVertex, int V, int *EdgeList,int E, 
         if (Component[kk] < 0){
             NCC_BFS++;
 
-            // Implement a BFS starting from vertex kk.  Mark every vertex v you find with 
+            // Implementing BFS starting from vertex kk.  Mark every vertex v you find with 
             // Component[v]= NCC_BFS, the component number.
 
           Component[kk] = NCC_BFS;
@@ -146,7 +146,7 @@ int find_connected_components_BFS(int *FirstVertex, int V, int *EdgeList,int E, 
 }
 void DFS(int v, int *FirstVertex, int V, int *EdgeList,int E, int *Component,int NCC){
     //
-    // Implement this function.  Mark v with the number of the component. Then find an unmarked 
+    // Mark v with the number of the component. Then find an unmarked 
     // neighbor of v and recursively do DFS on the neighbor
     
     if(Component[v] < 0){
@@ -181,8 +181,7 @@ int find_connected_components_DFS(int *FirstVertex, int V, int *EdgeList,int E, 
     return NCC_DFS;
 }
 
-void PrintAdjacencyListFormat(int *FirstVertex, int V, int *EdgeList,int E)
-  {
+void PrintAdjacencyListFormat(int *FirstVertex, int V, int *EdgeList,int E){
     int v;
     int e;
     cout << "V = " << V << "  E = " <<E <<endl;

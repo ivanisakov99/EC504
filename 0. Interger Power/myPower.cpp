@@ -5,10 +5,6 @@
 #include <math.h>
 using namespace std;
 
-/***********************************************************
-Main progam template for practice exercise HomeworkZero
-************************************************************/
-
 double slowPower(double x, long int N);
 double fastPower(double x, long int N);
 double  cPower(double x, long int N);
