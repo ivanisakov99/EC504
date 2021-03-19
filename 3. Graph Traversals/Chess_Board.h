@@ -50,8 +50,8 @@ bool Chess_Board::DFS(int row){  // Add queen to row...
 	// queens on the board in previous rows.
 
 	if(row >= NN){
-			found = true;
-			return found;
+		found = true;
+		return found;
 	}
 	
 	for(int j = 0; j < NN; j++){
@@ -88,9 +88,9 @@ bool Chess_Board::goodMove(int irow, int jcol){ // square is not captured by que
 	  //
 
 	for (row = 0; row < irow; row++){
-      if (A[row][jcol]){
-        return false;
-	  }
+      	if (A[row][jcol]){
+        	return false;
+	  	}
 	}
    	
 	for (row = irow, col = jcol; row >= 0 && col >= 0; row--, col--){
