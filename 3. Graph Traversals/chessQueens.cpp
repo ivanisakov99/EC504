@@ -16,7 +16,7 @@ int main( void ) {
   double delta_time; // Holds the final run time 
    
 
-   for (Size = 4; Size < 32; Size++){
+   for (Size=8;Size<32;Size++){
 	    Chess_Board *CB = new Chess_Board(Size);
 
 	    start = chrono::steady_clock::now();    
@@ -24,11 +24,11 @@ int main( void ) {
         stop = chrono::steady_clock::now(); 
 		difference_in_time = stop - start;
         delta_time = double(difference_in_time.count()); 
-		cout << "Found solution for " << Size << " in " << delta_time << "seconds"<< endl;
+		cout << "Found solution for " << Size<<" in "<< delta_time << "seconds"<< endl;
 		cout << *CB << endl;
         cout << endl;
 		delete CB;
    }
 
-   cout << "\n" << "Size = " << Size << endl;
+   cout << "\n"<< "Size = " << Size << endl;
 }

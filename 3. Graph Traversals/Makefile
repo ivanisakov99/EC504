@@ -4,7 +4,7 @@
 TARGET	=  connected chessQueens
 
 C_SOURCES =  connect.cpp
-C_OBJS     = connect.o
+C_OBJS     = connect.o chessQueens.o
 MY_INCLUDES =
 # merg.h
 
