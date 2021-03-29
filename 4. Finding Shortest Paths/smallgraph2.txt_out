@@ -1,0 +1,102 @@
+Dijkstra Simple
+
+CPU TIME in SECS 8.108e-06
+
+Shortest distance for 1 to 4 is 8
+4 --> 18 --> 5 --> 1
+
+Shortest distance for 1 to 7 is 13
+7 --> 18 --> 5 --> 1
+
+Shortest distance for 1 to 10 is 6
+10 --> 25 --> 5 --> 1
+
+Shortest distance for 1 to 13 is 13
+13 --> 10 --> 25 --> 5 --> 1
+
+Shortest distance for 1 to 16 is 17
+16 --> 26 --> 2 --> 1
+
+Shortest distance for 1 to 19 is 14
+19 --> 5 --> 1
+
+Shortest distance for 1 to 22 is 9
+22 --> 1
+
+Shortest distance for 1 to 25 is 5
+25 --> 5 --> 1
+
+Shortest distance for 1 to 28 is 5
+28 --> 5 --> 1
+
+Shortest distance for 1 to 2 is 4
+2 --> 1
+
+Dijkstra Heap
+
+CPU TIME in SECS 4.99e-07
+
+Shortest distance for 1 to 4 is 99999999
+4
+
+Shortest distance for 1 to 7 is 99999999
+7
+
+Shortest distance for 1 to 10 is 99999999
+10
+
+Shortest distance for 1 to 13 is 99999999
+13
+
+Shortest distance for 1 to 16 is 99999999
+16
+
+Shortest distance for 1 to 19 is 99999999
+19
+
+Shortest distance for 1 to 22 is 99999999
+22
+
+Shortest distance for 1 to 25 is 99999999
+25
+
+Shortest distance for 1 to 28 is 99999999
+28
+
+Shortest distance for 1 to 2 is 99999999
+2
+
+Bellman-Ford
+
+CPU TIME in SECS 5.19e-07
+
+Shortest distance for 1 to 4 is 99999999
+4
+
+Shortest distance for 1 to 7 is 99999999
+7
+
+Shortest distance for 1 to 10 is 99999999
+10
+
+Shortest distance for 1 to 13 is 99999999
+13
+
+Shortest distance for 1 to 16 is 99999999
+16
+
+Shortest distance for 1 to 19 is 99999999
+19
+
+Shortest distance for 1 to 22 is 99999999
+22
+
+Shortest distance for 1 to 25 is 99999999
+25
+
+Shortest distance for 1 to 28 is 99999999
+28
+
+Shortest distance for 1 to 2 is 99999999
+2
+
