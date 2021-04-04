@@ -5,11 +5,11 @@ using namespace std;
 
 // Structure for an item which stores weight and
 // corresponding value of Item
-struct Item{
+struct Job{
     int value, time, jobNum;
  
     // Constructor
-    Item(int value, int time, int jobNum){
+    Job(int value, int time, int jobNum){
        this->value = value;
        this->time = time;
        this->jobNum = jobNum;
@@ -18,14 +18,14 @@ struct Item{
  
 // Comparison function to sort Item according to val/weight
 // ratio
-bool cmp(struct Item a, struct Item b){
+bool cmp(struct Job a, struct Job b){
     double r1 = (double)a.value / (double)a.time;
     double r2 = (double)b.value / (double)b.time;
     return r1 > r2;
 }
 
 // Main greedy function to solve problem
-void fractionalKnapsack(int W, struct Item arr[], int n){
+void fractionalKnapsack(int W, struct Job arr[], int n){
     //    sorting Item on basis of ratio
     sort(arr, arr + n, cmp);
 
@@ -66,7 +66,7 @@ int main(){
     int W = 10; // Weight of knapsack
     
     // Array of V, T, Job Number
-    Item arr[] = {  {3, 2, 1}, 
+    Job arr[] = {  {3, 2, 1}, 
                     {4, 3, 2}, 
                     {7, 4, 3}, 
                     {5, 3, 4}, 
