@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*------------ MAIN SECTIONS SETUP ----------- */
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto";
+} 
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: rgba(2, 52, 75, 0.815);
+  max-width: 100%; 
+  min-height: 6rem;
+  display: flex;
+  justify-content: space-around; 
+  align-items: center;
+ 
+}
+
+.body{
+  width: 100%;
+  height: 94vh;  
+  background-color: rgb(241, 241, 241); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem; 
+}
+
+/*------------ HEADER ----------- */
+
+.btn-visualize {
+  padding: 1.3rem 2rem;  
+  border-radius: 0.3rem;
+  border: none;  
+  background-color: rgb(69, 207, 161); 
+  color: white;
+  font-size: 1.5rem; 
+  transition: all 0.3s;
+}
+
+.btn-visualize:focus {
+  outline: none; 
+}
+.btn-visualize:hover {
+  background-color: rgb(81, 236, 184); 
+}
+.btn-visualize:active {
+  background-color: rgb(45, 165, 125); 
+}
+
+.logo {
+font-size: 3rem;
+color: white;
+}
+
+
+/*------------ GRAPH ----------- */
+
+.graph-container {
+  position: relative;
+}
+
+.node {
+  content: "";
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid black; 
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; 
+}
+
+.node-1 {
+  transform: translate(30rem);
+}
+.node-2 {
+  transform: translateX(-30rem);
+}
+.node-3 {
+  transform: translateY(35rem);
+}
+.node-4 {
+  transform: translate(-10rem, 15rem); 
+}
+.node-5 {
+  transform: translate(10rem, 15rem); 
+}
+.node-6 {
+  transform: translate(-10rem, -15rem); 
+}
+.node-7 {
+  transform: translate(10rem, -15rem); 
+}
+.node-8 {
+  transform: translateY(-35rem); 
+}
+
+/*------------ WEIGHTS ----------- */
+
+.connection {
+  content: "";
+  position:absolute;
+  height: 1px;
+  width: 10rem;
+  border-bottom: 1px solid black;
+}
+.connection-text {
+  display: inline-block;
+  font-size: 2rem; 
+}
+ 
+.connection-1{ 
+  transform: translate(-1rem, 27.5rem) rotate(-63deg);
+  width: 17.4rem; 
+}
+.connection_text-1 {
+  transform: rotate(63deg) translate(2rem, -7rem); 
+}
+
+.connection-2{ 
+  transform: translate(-11.5rem, 27.5rem) rotate(63deg);
+  width: 17.4rem; 
+}
+.connection_text-2 {
+  transform: rotate(-63deg) translate(5rem, 6.9rem);
+}
+
+.connection-3{ 
+  transform: translate(-11.5rem, -22.7rem) rotate(-63deg);
+  width: 17.4rem; 
+}
+.connection_text-3 {
+  transform: rotate(63deg) translate(-3rem, -7.8rem);
+}
+
+.connection-4{ 
+  transform: translate(-1rem, -22.7rem) rotate(63deg);
+  width: 17.4rem; 
+}
+.connection_text-4 {
+  transform: rotate(-63deg) translate(9.7rem, 5.5rem);
+}
+
+.connection-5{ 
+  transform: translate(-20.1rem, 2.5rem) rotate(90deg);
+  width: 25rem; 
+}
+.connection_text-5 {
+  transform: rotate(-90deg) translate(2rem, 10rem);
+}
+
+.connection-6{ 
+  transform: translate(-0.1rem, 2.5rem) rotate(90deg);
+  width: 25rem;  
+}
+.connection_text-6 {
+  transform: rotate(-90deg) translate(6rem, 10rem);
+}
+
+.connection-7{ 
+  transform: translate(-5rem, -12.5rem) ;
+  width: 15rem;  
+}
+.connection_text-7 {
+  transform: translate(6.5rem, -5.5rem);
+}
+
+.connection-8{ 
+  transform: translate(-5rem, 17.5rem) ;
+  width: 15rem;  
+}
+.connection_text-8 {
+  transform: translate(6.5rem, -2.5rem);
+}
+
+.connection-9{ 
+  transform: translate(12.5rem, -5rem) rotate(38deg) ;
+  width: 20rem;  
+}
+.connection_text-9 {
+  transform: translate(9rem, -6.5rem) rotate(-38deg);
+}
+
+.connection-10{ 
+  transform: translate(-27.5rem, -5rem) rotate(-38deg) ;
+  width: 20rem;  
+}
+.connection_text-10 {
+  transform: translate(9rem, -6.5rem) rotate(38deg);
+}
+
+.connection-11{ 
+  transform: translate(-27.5rem, 10rem) rotate(38deg) ;
+  width: 20rem;  
+}
+.connection_text-11 {
+  transform: translate(9rem, -1.5rem) rotate(-38deg);
+}
+
+.connection-12{ 
+  transform: translate(12.5rem, 10rem) rotate(-38deg) ;
+  width: 20rem;  
+}
+.connection_text-12 {
+  transform: translate(9rem, -1.5rem) rotate(38deg);
+}
+ 
+
+
+/*------------ ANIMATION ----------- */
+
+.selected { 
+  border: 2px solid red;
+}
+
+.completed {
+  border: 2px solid rgb(30, 126, 236);
+}
+
+.hide {
+  display: none; 
+}
+
+
