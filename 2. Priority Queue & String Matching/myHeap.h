@@ -89,6 +89,8 @@ private:
             break;
          }
       }
+      //array[j] = item;
+      //array[j]->position = pos;
 
    }; 
 
