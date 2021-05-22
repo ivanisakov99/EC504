@@ -3,8 +3,8 @@
 #============================================================
 TARGET	=  sort topdownsplay
 
-C_SOURCES =  sortScaling.cpp
-C_OBJS     = sortScaling.o
+C_SOURCES =  sortScaling.cpp topdownsplay.cpp
+C_OBJS     = sortScaling.o topdownsplay.o
 MY_INCLUDES = sorting.h
 
 
