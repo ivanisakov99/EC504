@@ -6,7 +6,7 @@ TARGET	=  sort topdownsplay
 C_SOURCES =  sortScaling.cpp topdownsplay.cpp
 C_OBJS     = sortScaling.o topdownsplay.o
 MY_INCLUDES = sorting.h
-
+OUTPUTS	= sort.out topdownsplay.out
 
 
 CCX = g++
@@ -29,7 +29,7 @@ topdownsplay :   topdownsplay.o
 
 
 clean:
-	rm -f $(TARGET) $(C_OBJS) core *~
+	rm -f $(TARGET) $(C_OBJS) $(OUTPUTS) core *~
 
 
 
