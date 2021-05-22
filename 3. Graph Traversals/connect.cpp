@@ -2,6 +2,7 @@
 #include <fstream>
 #include <chrono>
 #include <queue>
+#include <cstring>
 using namespace std;
 
 /***********************************************************
@@ -121,7 +122,7 @@ int find_connected_components_BFS(int *FirstVertex, int V, int *EdgeList,int E, 
         if (Component[kk] < 0){
             NCC_BFS++;
 
-            // Implementing BFS starting from vertex kk.  Mark every vertex v you find with 
+            // Implement a BFS starting from vertex kk.  Mark every vertex v you find with 
             // Component[v]= NCC_BFS, the component number.
 
           Component[kk] = NCC_BFS;

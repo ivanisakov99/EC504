@@ -3,7 +3,6 @@
 
 #include <queue>
 #include "myHeap.full.h"  // This is my version of HW 2.  You can include your own binary heap
-//#include "myHeap.h"
 
 #define LARGE1 9999999
 
@@ -112,7 +111,6 @@ void DijkstraHeap(nodeitem N[], int Or, int Nm)
     nodeitem *node;
    
     // You write a Dijkstra algorithm using a binary heap; you can reuse the one from HW 2 with minor variations
-
     thisHeap = new Heap<nodeitem>;
     int v, dv;
     N[Or].key = 0;
