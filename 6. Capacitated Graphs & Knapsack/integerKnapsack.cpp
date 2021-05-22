@@ -62,7 +62,7 @@ int knapSackRec(int W, int wt[], int val[], int i, int** dp){
     }
 }
  
-int knapSack2(int W, int wt[], int val[], int n){
+void knapSack2(int W, int wt[], int val[], int n){
     // double pointer to declare the table dynamically
     int** dp, optimal;
     dp = new int*[n];
@@ -96,8 +96,6 @@ int knapSack2(int W, int wt[], int val[], int n){
     delete dp;
 
     cout << "Optimal value: " << optimal << endl;
-
-    return optimal;
 }
  
 // Driver Code
@@ -105,20 +103,20 @@ int main(){
     // int val[] = {1, 6, 18, 22, 28};
     // int wt[] = {1, 2, 5, 6, 7};
 
-    int val[] = {3, 4, 7, 5, 2, 3, 5, 8, 9, 6};
-    int wt[] = {2, 3, 4, 3, 1, 3, 3, 5, 6, 4};
+    int val[] = {10, 11, 12, 13, 14, 15};
+    int wt[] = {1, 1, 2, 3, 4, 3};
     int n = sizeof(val) / sizeof(val[0]);
 
-    cout << "Method 1: DP" << endl;
-    for(int k = 9; k < 13; k++){
-        knapSack1(k, wt, val, n);
-        cout << endl;
-    }
+    cout << "\nMethod 1: DP\n" << endl;
+    int k = 11;
+    
+    knapSack1(k, wt, val, n);
+    
 
-    cout << "Method 2: Memoisation" << endl;
-    for(int k = 9; k < 13; k++){
-        knapSack2(k, wt, val, n);
-        cout << endl;
-    }
+    // cout << "Method 2: Memoisation" << endl;
+    // for(int k = 9; k < 12; k++){
+    //     knapSack2(k, wt, val, n);
+    //     cout << endl;
+    // }
     return 0;
 }

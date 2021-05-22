@@ -1,20 +1,54 @@
-CC = g++
+.SUFFIXES:
+.SUFFIXES: .o .cpp
 
-CFLAGS = -c -Wall -std=c++11
+TARGET = IK FK
 
-all: integerKnapsack fractionalKnapsack
+C_SOURCES = integerKnapsack.cpp
+C_OBJS = integerKnapsack.o
 
-integerKnapsack: integerKnapsack.o
-	$(CC) integerKnapsack.o -o integerKnapsack
+CCX = g++
+CXXFLAGS = -g -std=c++11 -Wall
 
-integerKnapsack.o: integerKnapsack.cpp
-	$(CC) $(CFLAGS) integerKnapsack.cpp
+# all: integerKnapsack fractionalKnapsack
+all: $(TARGET)
 
-fractionalKnapsack: fractionalKnapsack.o
-	$(CC) fractionalKnapsack.o -o fractionalKnapsack
+.o:.cpp
+	$(CCX)  -c  $(CXXFLAGS) $<  
 
-fractionalKnapsack.o: fractionalKnapsack.cpp
-	$(CC) $(CFLAGS) fractionalKnapsack.cpp
+IK : integerKnapsack.o
+	$(CCX) $(CXXFLAGS)  $^ $(LIBDIRS)  -o $@
 
-clean:
-	rm -rf *o *~ integerKnapsack integerKnapsack.out fractionalKnapsack fractionalKnapsack.out
+FK : fractionalKnapsack.o
+	$(CCX) $(CXXFLAGS)  $^ $(LIBDIRS)  -o $@
+
+
+clean: 
+	rm -f $(TARGET) $(C_OBJS) core *~
+
+
+# integerKnapsack: integerKnapsack.o
+# 	$(CCX) integerKnapsack.o -o integerKnapsack
+
+# integerKnapsack.o: integerKnapsack.cpp
+# 	$(CCX) $(CXXFLAGS) integerKnapsack.cpp
+
+# fractionalKnapsack: fractionalKnapsack.o
+# 	$(CCX) fractionalKnapsack.o -o fractionalKnapsack
+
+# fractionalKnapsack.o: fractionalKnapsack.cpp
+# 	$(CCX) $(CXXFLAGS) fractionalKnapsack.cpp
+
+# ford: ford.o
+# 	$(CCX) ford.o -o ford
+
+# ford.o: ford.cpp
+# 	$(CCX) $(CXXFLAGS) ford.cpp
+
+# preflowPush: preflowPush.o
+# 	$(CCX) preflowPush.o -o preflowPush
+
+# preflowPush.o: preflowPush.cpp
+# 	$(CCX) $(CXXFLAGS) preflowPush.cpp
+
+# clean:
+# 	rm -rf *o *~ integerKnapsack integerKnapsack.out fractionalKnapsack fractionalKnapsack.out ford ford.o preflowPush preflowPush.o
