@@ -5,12 +5,14 @@
 using namespace std;
 
 typedef struct Node Data_Node;
-struct Node {
+
+struct Node{
 	int code;
 	char zip[12];
 	char city[150];
 	char state[6];
 };
+
 struct Tree_node{
     int key;
     Tree_node* lchild;
@@ -20,11 +22,12 @@ struct Tree_node{
 
 class SplayTree{
     public:
+        // 
+        SplayTree(){ 
 
-        SplayTree(){
-            }
+        }
 
-            // RR(Y rotates to the right
+        // RR(Y rotates to the right
         Tree_node* Right_Rotate(Tree_node* k2){
             // Single rotate the root k2 to the right
             // You have to implement this, return the new root
@@ -32,9 +35,9 @@ class SplayTree{
             k2->lchild = k1->rchild;
             k1->rchild = k2;
             return k1;
-
         }
-            // LL(Y rotates to the left)
+        
+        // LL(Y rotates to the left)
         Tree_node* Left_Rotate(Tree_node* k2){
             // Single rotate the root k2 to the left
             // You have to implement this, return the new root.
@@ -44,13 +47,13 @@ class SplayTree{
             return k1;
         }
 
-            // An implementation of top-down splay tree
+        // An implementation of top-down splay tree
 
-        Tree_node* Splay(int key, Tree_node* root)
-        {//This is one of the things you have to implement
-
-            if (!root)
+        Tree_node* Splay(int key, Tree_node* root){
+            if (!root){
                 return NULL;
+            }
+            
             Tree_node Tree;
             /* .......*/
             Tree.lchild = NULL;
@@ -104,12 +107,11 @@ class SplayTree{
             root->lchild = Tree.rchild;
             root->rchild = Tree.lchild;
             return root;
- 
         }
 
-        Tree_node* New_Node(int key) {
+        Tree_node* New_Node(int key){
             Tree_node*  my_node = new Tree_node;
-            if (!my_node){
+            if(!my_node){
                 fprintf(stderr, "Out of memory!\n");
                 exit(1);
             }
@@ -122,24 +124,25 @@ class SplayTree{
             Tree_node* my_node = NULL;
             
             my_node = New_Node(key);
-            if (!root){
+            if(!root){
                 root = my_node;
                 return root;
             }
+
             root = Splay(key, root);
-            if (key < root->key){
-                    my_node->lchild = root->lchild;
-                    my_node->rchild = root;
-                    root->lchild = NULL;
-                    root = my_node;
+            if(key < root->key){
+                my_node->lchild = root->lchild;
+                my_node->rchild = root;
+                root->lchild = NULL;
+                root = my_node;
             }
-            else if (key > root->key){
-                    my_node->rchild = root->rchild;
-                    my_node->lchild = root;
-                    root->rchild = NULL;
-                    root = my_node;
-                }
-            else { /* it's already in tree, don't add it again*/
+            else if(key > root->key){
+                my_node->rchild = root->rchild;
+                my_node->lchild = root;
+                root->rchild = NULL;
+                root = my_node;
+            }
+            else{ /* it's already in tree, don't add it again*/
                 delete my_node;
                 return root;
             }
@@ -148,17 +151,20 @@ class SplayTree{
 
         Tree_node* Delete(int key, Tree_node* root){
             Tree_node* temp;
-            if (!root)
+            if (!root){
                 return NULL;
+            }
+
             root = Splay(key, root);
-            if (key != root->key)
+            if(key != root->key){
                 return root;
+            }
             else{
-                if (!root->lchild){
+                if(!root->lchild){
                     temp = root;
                     root = root->rchild;
                 }
-                else {
+                else{
                     temp = root;
                     root = Splay(key, root->lchild);
                     root->rchild = temp->rchild;
@@ -166,58 +172,58 @@ class SplayTree{
                 delete temp;
                 return root;
             }
-
         }
 
         Tree_node* Search(int key, Tree_node* root){
-                return Splay(key, root);
+            return Splay(key, root);
         }
 
         void InOrder(Tree_node* root){
-            if (root){
+            if(root){
                 InOrder(root->lchild);
-                cout<< "key: " <<root->key;
-                if(root->lchild)
-                    cout<< " | left child: "<< root->lchild->key;
-                if(root->rchild)
+                cout << "key: " << root->key;
+                if(root->lchild){
+                    cout << " | left child: "<< root->lchild->key;
+                }
+                if(root->rchild){
                     cout << " | right child: " << root->rchild->key;
-
-                cout<< endl;
+                }
+                cout << endl;
                 InOrder(root->rchild);
             }
         }
 };
 
-int main()
-    {
-        SplayTree st;
-        int vector[10] = {9,8,7,6,5,4,3,2,1,0};
-        Tree_node *root;
-        root = NULL;
-        const int length = 10;
-        int i;
+int main(){
+    SplayTree st;
+    int vector[10] = {9,8,7,6,5,4,3,2,1,0};
+    Tree_node *root;
+    root = NULL;
+    const int length = 10;
+    int i;
 
-        for(i = 0; i < length; i++)
-            root = st.Insert(vector[i], root);
-
-        cout<<"\nInOrder: \n";
-
-        st.InOrder(root);
-        int input;
-        input = 6;
-        root = st.Search(input, root);
-        cout<<"\nAfter Search "<<input<<endl;
-        st.InOrder(root);
-
-        input = 3;
-        root = st.Search(input, root);
-        cout<<"\nAfter Search "<<input<<endl;
-        st.InOrder(root);
-
-        input = 8;
-        root = st.Delete(input,root);
-        cout << "\nAfter Delete "<<input<<endl;
-        st.InOrder(root);
-        cout<<"\n";
-        return 0;
+    for(i = 0; i < length; i++){
+        root = st.Insert(vector[i], root);
     }
+
+    cout << "\nInOrder: \n";
+
+    st.InOrder(root);
+    int input;
+    input = 6;
+    root = st.Search(input, root);
+    cout << "\nAfter Search " << input << endl;
+    st.InOrder(root);
+
+    input = 3;
+    root = st.Search(input, root);
+    cout << "\nAfter Search " << input << endl;
+    st.InOrder(root);
+
+    input = 8;
+    root = st.Delete(input,root);
+    cout << "\nAfter Delete " << input << endl;
+    st.InOrder(root);
+    cout << "\n";
+    return 0;
+}

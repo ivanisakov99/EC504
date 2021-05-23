@@ -7,19 +7,14 @@ using namespace std;
 
 static int swapCount = 0;
 
-void swap(int* a, int* b)
-{
-    //swapCount++;
-    int temp;
-    temp = *a; 
-    *a = *b; 
-    *b = temp; 
+void swap(int* a, int* b){
+  int temp;
+  temp = *a; 
+  *a = *b; 
+  *b = temp; 
 }
 
-
 /* See Knuth's shuffles https://en.wikipedia.org/wiki/Random_permutation */
-
-
 
 void insertionsort(int a[],  int n){
   int i, key, j;  
@@ -36,9 +31,8 @@ void insertionsort(int a[],  int n){
 }
 
 // Order Theta(NlogN) sorting
-void mergeSort(int a[], int a_tmp[], int l, int r)
-{
-  // you program this.  a_tmp can be used for merging 
+void mergeSort(int a[], int a_tmp[], int l, int r){
+  // a_tmp can be used for merging 
   int i, j, k;
   if(r > l){
     int m = (l + r)/2;
@@ -56,20 +50,18 @@ void mergeSort(int a[], int a_tmp[], int l, int r)
       a[k] = (a_tmp[i] < a_tmp[j]) ? a_tmp[i++] : a_tmp[j--];
     }
   }
-    
 }
+
 // 
-void mergeSortblend(int a[], int a_tmp[], int l, int r)
-{
+void mergeSortblend(int a[], int a_tmp[], int l, int r){
   int i, j, k;
   if(r <= l){
     return;
   }
- // You program this
- if(r - l > 32){
-  int m = (l + r)/2;
-  mergeSortblend(a, a_tmp, l, m);
-  mergeSortblend(a, a_tmp, m + 1, r);
+  if(r - l > 32){
+    int m = (l + r)/2;
+    mergeSortblend(a, a_tmp, l, m);
+    mergeSortblend(a, a_tmp, m + 1, r);
 
     for(i = m + 1; i > l; i--){
       a_tmp[i - 1] = a[i - 1];
@@ -80,9 +72,9 @@ void mergeSortblend(int a[], int a_tmp[], int l, int r)
     for(k = l; k <= r; k++){
       a[k] = (a_tmp[i] < a_tmp[j]) ? a_tmp[i++] : a_tmp[j--];
     }
- }
- else{
-   for(i = l + 1; i <= r; i++){
+  }
+  else{
+    for(i = l + 1; i <= r; i++){
       k = a[i];
       j = i - 1;
 
@@ -93,25 +85,21 @@ void mergeSortblend(int a[], int a_tmp[], int l, int r)
       a[j + 1] = k;
    }
  }
-
 }
 
 bool checkInorder(int a[],int left, int right){
-  //checks  that a is in order from left to right
+  // Checks that a is in order from left to right
   int tmp;
   for (int i = left; i < right; i++){
     if (a[i] > a[i+1]){
       tmp = i;
-      
+      return false;   
     }
   }
-
   return true;
 }
 
-void simpleTimsort(int a[], int a_tmp[], int n)
-{ 
-   //You program this
+void simpleTimsort(int a[], int a_tmp[], int n){ 
   const int RUN = 32;
   int runstack[n/32], num_in_stack = 0;
   runstack[num_in_stack] = 0;
@@ -123,9 +111,9 @@ void simpleTimsort(int a[], int a_tmp[], int n)
       continue;
     }
     else{
-      //If the size of the run is less than minrun
+      // If the size of the run is less than minrun
       if( (z - runstack[num_in_stack]) < RUN){
-        //Insertion
+        // Insertion
         key = a[z];
         j = z - 1;
 
@@ -138,7 +126,7 @@ void simpleTimsort(int a[], int a_tmp[], int n)
         
         continue;
       }
-      //If the run is greater or equal to minrun
+      // If the run is greater or equal to minrun
       else if((z - runstack[num_in_stack]) >= RUN){
         num_in_stack++;
         runstack[num_in_stack] = z;
@@ -147,7 +135,7 @@ void simpleTimsort(int a[], int a_tmp[], int n)
         Last = runstack[num_in_stack] - runstack[num_in_stack - 1];
         
         while(secondLast <= Last && num_in_stack > 1){
-          //Merge
+          // Merge
           l = runstack[num_in_stack - 2];
           m = runstack[num_in_stack - 1];
           r = z;
@@ -176,7 +164,6 @@ void simpleTimsort(int a[], int a_tmp[], int n)
                 break;
               }
             }
-      
           }
 
           num_in_stack--;
@@ -185,17 +172,15 @@ void simpleTimsort(int a[], int a_tmp[], int n)
           secondLast = runstack[num_in_stack - 1] - runstack[num_in_stack - 2];
           Last = runstack[num_in_stack] - runstack[num_in_stack - 1];
         }
-        
       }
     } 
-    
   }
 
   num_in_stack++;
   runstack[num_in_stack] = n;
 
   while(num_in_stack > 1){
-    //Merge
+    // Merge
     l = runstack[num_in_stack - 2];
     m = runstack[num_in_stack - 1];
     r = n;
@@ -224,7 +209,6 @@ void simpleTimsort(int a[], int a_tmp[], int n)
           break;
         }
       }
-      
     }
     
     num_in_stack--;
