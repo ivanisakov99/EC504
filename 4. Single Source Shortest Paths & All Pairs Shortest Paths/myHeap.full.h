@@ -1,13 +1,12 @@
-#ifndef BINARY_HEAP_H_
-#define BINARY_HEAP_H_
+#ifndef BINARY_HEAP_H
+#define BINARY_HEAP_H
 
 using namespace std;
 
 const int MAX_SIZE = 200000; //the maximum amount of elements our heap should have.
 
 template <typename Object>
-class Heap
-{
+class Heap{
 public:
    Heap(){
       elements = 0;

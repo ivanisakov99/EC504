@@ -13,7 +13,7 @@ struct arc{
   struct arc *next;
   int length;
   int end;
-  };
+};
 
 typedef struct node{
    struct arc *first; /* first arc in linked list */
@@ -21,10 +21,9 @@ typedef struct node{
    int key;  /* Distance estimate, named key to reuse heap code*/
    int P;  /* Predecessor node in shortest path */
    int position;  /* Position of node in heap, from 0 to Nm, where 0 is best */
-   } nodeitem;
+} nodeitem;
 
-void BellmanFord(nodeitem N[], int Or, int Nm)
-{
+void BellmanFord(nodeitem N[], int Or, int Nm){
    // You program this, a  Bellman Ford algorithm that uses a work queue.  DO NOT implement this as 3 for loops. 
    // That can be very slow, and waste many iterations. 
 
@@ -57,32 +56,30 @@ void BellmanFord(nodeitem N[], int Or, int Nm)
             }
             edge = edge->next;
         }
-
     }
-
 }/* end Bellman-Ford */
 /* ---------------*/
 
 
-void Dijkstra(nodeitem N[], int Or, int Nm)
-{
-    int Mark[Nm+1];
+void Dijkstra(nodeitem N[], int Or, int Nm){
+    int Mark[Nm + 1];
     struct arc *edge;
     int v, dv, min_d, min_v, finished;
-    for (int i=1; i<=Nm; i++){
+    for(int i = 1; i <= Nm; i++){
         Mark[i]=-1;
     }
+
     N[Or].key = 0;
     Mark[Or] = 1;
     finished = 1;
     min_v = Or;
     min_d = 0;
-    while (finished < Nm){
+    while(finished < Nm){
         edge = N[min_v].first;  //update distances
-        while (edge != NULL){ // explore the outgoing arcs of u 
+        while(edge != NULL){ // explore the outgoing arcs of u 
             v = edge->end;
             dv = min_d + edge->length;
-            if (N[v].key > dv){
+            if(N[v].key > dv){
                 N[v].key = dv;
                 N[v].P = min_v;
             }//if D > dv 
@@ -90,9 +87,9 @@ void Dijkstra(nodeitem N[], int Or, int Nm)
         }// while edge           
         
         min_d = LARGE1;
-        for (int j = 0; j <= Nm; j++){
-            if (Mark[j] < 1){
-                if (N[j].key < min_d){
+        for(int j = 0; j <= Nm; j++){
+            if(Mark[j] < 1){
+                if(N[j].key < min_d){
                     min_d = N[j].key;
                     min_v = j;
                 }
@@ -104,8 +101,7 @@ void Dijkstra(nodeitem N[], int Or, int Nm)
 } /* end Dijkstra */
 
 
-void DijkstraHeap(nodeitem N[], int Or, int Nm)
-{
+void DijkstraHeap(nodeitem N[], int Or, int Nm){
     Heap<nodeitem> *thisHeap;
     struct arc *edge;
     nodeitem *node;
