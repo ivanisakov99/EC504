@@ -48,157 +48,159 @@ int main(int argc, char *argv[]){
     return -1;
   } 
   
-     infile1 >> V;
-     infile1 >> E;
+  infile1 >> V;
+  infile1 >> E;
     
-    int *Component = new int[V];
-    fill_n(Component, V, -1);
+  int *Component = new int[V];
+  fill_n(Component, V, -1);
 
-
-    int *FirstVertex = new int[V+1];
-    for(int i=0; i< V+1 ; i++) 
-      infile1 >> FirstVertex[i];  //  Note: FirstVertex[V] = E  fake extra link
+  int *FirstVertex = new int[V + 1];
+  for(int i = 0; i < V + 1 ; i++){
+    infile1 >> FirstVertex[i];  //  Note: FirstVertex[V] = E  fake extra link
+  }
     
-    int *EdgeList = new int[E+1];
-    for(int i=0; i< E +1 ; i++)
-      infile1 >> EdgeList[i];   // Note  EdgeList[E] = -1;  is null flag
+  int *EdgeList = new int[E + 1];
+  for(int i = 0; i < E + 1 ; i++){
+    infile1 >> EdgeList[i];   // Note  EdgeList[E] = -1;  is null flag
+  }
     
-    infile1.close();
+  infile1.close();
 
-     cout << endl << "A print in Adjacency  List form to help with Debugging! " << endl;
-     PrintAdjacencyListFormat(FirstVertex, V, EdgeList, E);
+  cout << endl << "A print in Adjacency  List form to help with Debugging! " << endl;
+  PrintAdjacencyListFormat(FirstVertex, V, EdgeList, E);
     
-    /* Find NumberCC_BFS   */
-    start = chrono::steady_clock::now();
-    NumberCC_BFS= find_connected_components_BFS(FirstVertex, V, EdgeList,E,Component);
-    stop = chrono::steady_clock::now();
-    difference_in_time = stop - start;
-    difference_in_seconds_BFS = double(difference_in_time.count());
+  /* Find NumberCC_BFS   */
+  start = chrono::steady_clock::now();
+  NumberCC_BFS= find_connected_components_BFS(FirstVertex, V, EdgeList, E, Component);
+  stop = chrono::steady_clock::now();
+  difference_in_time = stop - start;
+  difference_in_seconds_BFS = double(difference_in_time.count());
 
-    //Begin output file : DO NOT CHANGE
-    ofstream outfile(strcat(argv[1],"_out"));
-    outfile << difference_in_seconds_BFS << endl;
-    outfile << NumberCC_BFS << endl;
-    outfile << "BFS Components: " << endl;
-    for (int kk = 0; kk <  V; kk+= 10){
-        for (int jj = 0; jj < 10; jj++)
-            if (kk + jj < V)
-                outfile << Component[kk+jj]<< "\t";
-        outfile << endl;
+  //Begin output file : DO NOT CHANGE
+  ofstream outfile(strcat(argv[1],"_out"));
+  outfile << difference_in_seconds_BFS << endl;
+  outfile << NumberCC_BFS << endl;
+  outfile << "BFS Components: " << endl;
+  for(int kk = 0; kk <  V; kk += 10){
+    for(int jj = 0; jj < 10; jj++){
+      if(kk + jj < V){
+        outfile << Component[kk+jj]<< "\t";
+      }
     }
+    outfile << endl;
+  }
 
-//  Now do DFS connected components
+  //  Now do DFS connected components
 
-    start = chrono::steady_clock::now();
-    NumberCC_BFS = find_connected_components_DFS(FirstVertex, V,EdgeList,E,Component);
-    stop = chrono::steady_clock::now();
-    difference_in_time = stop - start;
-    difference_in_seconds_BFS = double(difference_in_time.count());
+  start = chrono::steady_clock::now();
+  NumberCC_BFS = find_connected_components_DFS(FirstVertex, V, EdgeList, E, Component);
+  stop = chrono::steady_clock::now();
+  difference_in_time = stop - start;
+  difference_in_seconds_BFS = double(difference_in_time.count());
 
-    outfile << difference_in_seconds_BFS << endl;
-    outfile << "DFS Components: " << endl;
-    for (int kk = 0; kk <  V; kk+= 10){
-        for (int jj = 0; jj < 10; jj++)
-            if (kk + jj < V)
-                outfile << Component[kk+jj]<< "\t";
-        outfile << endl;
+  outfile << difference_in_seconds_BFS << endl;
+  outfile << "DFS Components: " << endl;
+  for (int kk = 0; kk <  V; kk+= 10){
+    for (int jj = 0; jj < 10; jj++){
+      if (kk + jj < V){
+        outfile << Component[kk+jj]<< "\t";
+      }
     }
+    outfile << endl;
+  }
      
-    delete[] FirstVertex;
-    delete[] EdgeList;
-    delete[] Component;
-    return 0;
+  delete[] FirstVertex;
+  delete[] EdgeList;
+  delete[] Component;
+  return 0;
 }
 
-int find_connected_components_BFS(int *FirstVertex, int V, int *EdgeList,int E, int *Component)
-{  
+int find_connected_components_BFS(int *FirstVertex, int V, int *EdgeList,int E, int *Component){  
     int NCC_BFS  = 0;
     int current = -1;
     fill_n(Component, V, -1);
     queue<int> Q; // standard template library queue
 
-    for (int kk = 0; kk < V; kk++){
-        
-        if (Component[kk] < 0){
-            NCC_BFS++;
+    for(int kk = 0; kk < V; kk++){  
+      if (Component[kk] < 0){
+        NCC_BFS++;
 
-            // Implement a BFS starting from vertex kk.  Mark every vertex v you find with 
-            // Component[v]= NCC_BFS, the component number.
+        // Implement a BFS starting from vertex kk.  Mark every vertex v you find with 
+        // Component[v]= NCC_BFS, the component number.
 
-          Component[kk] = NCC_BFS;
-          Q.push(kk);
+        Component[kk] = NCC_BFS;
+        Q.push(kk);
 
-          while(!Q.empty()){
-            current = Q.front();
+        while(!Q.empty()){
+          current = Q.front();
             
-            for(int i = FirstVertex[current]; i <= FirstVertex[current + 1] - 1; i++){
-              if(Component[EdgeList[i]] < 0){
-                Component[EdgeList[i]] = NCC_BFS;
-                Q.push(EdgeList[i]);
-              }
+          for(int i = FirstVertex[current]; i <= FirstVertex[current + 1] - 1; i++){
+            if(Component[EdgeList[i]] < 0){
+              Component[EdgeList[i]] = NCC_BFS;
+              Q.push(EdgeList[i]);
             }
-
-            Q.pop();
           }
+
+          Q.pop();
         }
+      }
     }
     
-    return NCC_BFS;
+  return NCC_BFS;
 }
-void DFS(int v, int *FirstVertex, int V, int *EdgeList,int E, int *Component,int NCC){
-    //
-    // Mark v with the number of the component. Then find an unmarked 
-    // neighbor of v and recursively do DFS on the neighbor
+
+//
+void DFS(int v, int *FirstVertex, int V, int *EdgeList,int E, int *Component, int NCC){
+  //
+  // Mark v with the number of the component. Then find an unmarked 
+  // neighbor of v and recursively do DFS on the neighbor
     
-    if(Component[v] < 0){
-      int current;
-      Component[v] = NCC;
+  if(Component[v] < 0){
+    int current;
+    Component[v] = NCC;
       
-      for (int i = FirstVertex[v]; i <= FirstVertex[v + 1] - 1; i++){
-        current = EdgeList[i];
+    for(int i = FirstVertex[v]; i <= FirstVertex[v + 1] - 1; i++){
+      current = EdgeList[i];
 
-        if(Component[current] < 0){
-          DFS(current, FirstVertex, V, EdgeList, E, Component, NCC);
-        }
+      if(Component[current] < 0){
+        DFS(current, FirstVertex, V, EdgeList, E, Component, NCC);
       }
     }
-  
-
-}
-
-
-int find_connected_components_DFS(int *FirstVertex, int V, int *EdgeList,int E, int *Component)
-{  
-    int NCC_DFS  = 0;
-    int current = -1;
-    fill_n(Component, V, -1);
-    for (int kk = 0; kk < V; kk++){
-        if (Component[kk] < 0){
-            NCC_DFS++;
-            DFS(kk,FirstVertex,V,EdgeList,E,Component,NCC_DFS);
-        }
-    }
-    
-    return NCC_DFS;
-}
-
-void PrintAdjacencyListFormat(int *FirstVertex, int V, int *EdgeList,int E){
-    int v;
-    int e;
-    cout << "V = " << V << "  E = " <<E <<endl;
-    for( v = 0; v < V; v++)
-      {
-	cout << endl;
-	cout << v  << ": ";
-	
-	for(e = FirstVertex[v]; e < FirstVertex[v+1]; e++) 
-	  cout << EdgeList[e]<< "-> ";
-
-	cout <<"nil";
-      }
-
-    cout << endl;
-    cout << v  << " : ";
-    cout << EdgeList[e]  << " That's Edge List  nil  Folks " << endl;
- 
   }
+}
+
+//
+int find_connected_components_DFS(int *FirstVertex, int V, int *EdgeList, int E, int *Component){  
+  int NCC_DFS  = 0;
+  int current = -1;
+  fill_n(Component, V, -1);
+  for(int kk = 0; kk < V; kk++){
+    if(Component[kk] < 0){
+      NCC_DFS++;
+      DFS(kk,FirstVertex,V,EdgeList,E,Component,NCC_DFS);
+    }
+  }
+    
+  return NCC_DFS;
+}
+
+void PrintAdjacencyListFormat(int *FirstVertex, int V, int *EdgeList, int E){
+  int v;
+  int e;
+  cout << "V = " << V << "  E = " << E <<endl;
+  for(v = 0; v < V; v++){
+	  cout << endl;
+	  cout << v  << ": ";
+	
+	  for(e = FirstVertex[v]; e < FirstVertex[v+1]; e++){ 
+	    cout << EdgeList[e]<< "-> ";
+    }
+
+	  cout <<"nil";
+  }
+
+  cout << endl;
+  cout << v  << " : ";
+  cout << EdgeList[e]  << " That's Edge List  nil  Folks " << endl;
+ 
+}
