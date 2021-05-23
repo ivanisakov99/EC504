@@ -1,4 +1,3 @@
-
 #include <chrono>
 #include <iostream>
 #include <fstream>
@@ -10,7 +9,7 @@ typedef struct heapItem{
 	int key;
 	double data;
 	int position;
-} hItem;
+}hItem;
 
 int myrand(int iseed){
 	int wrap = 131071;
@@ -18,8 +17,7 @@ int myrand(int iseed){
 	return (factor*iseed)%wrap;
 }
 
-int main() 
-{
+int main() {
 	Heap<hItem> *thisHeap;
 	int i;
 	thisHeap = new Heap<hItem>;
@@ -29,7 +27,7 @@ int main()
 	int newkey;
 	int iseed=3571;
 	
-	for(i = 0;i<1000;i++){
+	for(i = 0; i < 1000; i++){
 		iseed = myrand(iseed);
 		Elements[i].key = iseed;  
 		iseed = myrand(iseed);
@@ -37,7 +35,7 @@ int main()
 		thisHeap->insert(&Elements[i]);
 	}
 
-	for (int j = 0; j<10; j++){
+	for (int j = 0; j < 10; j++){
 		temp = thisHeap->remove_min();
 		cout << temp->key<<";" ;
 	}
@@ -49,14 +47,10 @@ int main()
 		}
 		thisHeap->decreaseKey(Elements[j].position, newkey);
 	}
-	for (int j = 0; j<10; j++){
+	for (int j = 0; j < 10; j++){
 		temp = thisHeap->remove_min();
 		cout << temp->key<<";" ;
 	}
 	cout << endl;
 	return 0;
 }
-
-
-
-

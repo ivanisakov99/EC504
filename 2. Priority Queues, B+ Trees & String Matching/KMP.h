@@ -2,8 +2,7 @@
 #define KMP_H_
 
 // Fills lps[] for given patttern pat[0..M-1] 
-void computePiArray(string pat, int M, int* pi) 
-{ 
+void computePiArray(string pat, int M, int* pi) { 
     int k = 0, j = 1;
     pi[0] = 0;
 
@@ -21,11 +20,9 @@ void computePiArray(string pat, int M, int* pi)
             k = pi[k - 1];
         }
     }
-    
 }   
 // Prints occurrences of txt[] in pat[] 
-void KMPSearch(string pat, string txt) 
-{ 
+void KMPSearch(string pat, string txt){ 
     int M = pat.length(); 
     int N = txt.length(); 
   
@@ -55,6 +52,5 @@ void KMPSearch(string pat, string txt)
         }
     }
 } 
-  
 
 #endif
