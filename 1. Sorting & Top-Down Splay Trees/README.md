@@ -10,17 +10,15 @@ to be implemented are:
 
 • A simple version of Timsort, to be described below.
 
-All of the sorting routines are to be implemented in the header file sorting.h, which is enclosed as part
-of the HW. The main file can be used for debugging, but should not be changed.
+All of the sorting routines are to be implemented in the header file *sorting.h*. The main file can be used for debugging, but should not be changed.
 
 The codes will sort two lists of integers. The first list is randomly generated in the main program. The second list is read from file. You cannot change
-the original sortScaling.cpp file, but you can write your own main program for debugging with smaller list lengths if you wish. Once you have completed this,
-you can make the executable using make all . You can then run ./sort >> sort.out . Turn in your sorting.h file and the sort.out file in HW1 folder in
-your /projectnb/ec504/ directory.
+the original *sortScaling.cpp* file, but you can write your own main program for debugging with smaller list lengths if you wish. Once you have completed this,
+you can make the executable using *make all*. You can then run *./sort >> sort.out*.
 
 Now, here is a brief description of simpleTimsort:
 
-    Set minrunsize to 32. Initialize runstack as array, with runstack[0] = 0, and num_in_stack = 0;
+    Set minrunsize to 32. Initialise runstack as array, with runstack[0] = 0, and num_in_stack = 0;
     input array a[], with n elements
     for i in 0 to n-1,
       find a run of nondecreasing entries in i.
