@@ -3,8 +3,11 @@ In this exercise, you are to implement four sorting algorithms to sort arrays of
 to be implemented are:
 
 • Insertion Sort
+
 • Merge Sort
+
 • Merge Sort Blend, where, when in the recursion you find you have 32 or less items to sort, you do insertion sort and don’t recur further.
+
 • A simple version of Timsort, to be described below.
 
 All of the sorting routines are to be implemented in the header file sorting.h, which is enclosed as part
