@@ -1,7 +1,8 @@
+# <ins>Graph Traversals</ins>
 ### <ins>Problem 1: Finding Connected Components</ins>
 In this problem, you will search two undirected Graphs, to find the connected components. You will output a vector which is of the length number of vertices, where each vertex will be assigned the number of the component the vertex is in, from 1 to total number of components. You will need to complete the two functions to do Breadth First Search of the graph, as well as Depth First Search.
 
-*An undirected graph G(V, E) is defined in terms of two arrays: First Vertex[0 : Vsize] and EdgeList[0 : Esize] that label the vertices from 0, 1, . . . , Vsize−1 and edges from 0, 1, . . . , Esize−1, respectively. The last “fake” vertex (First Vertex[Vsize] = Esize) points to the null “fake” edge with ”null” value ( Edge[Esize] = −1). This is the Forward Star data structure discussed in class.*
+An undirected graph *G(V, E)* is defined in terms of two arrays: *First Vertex[0 : Vsize]* and *EdgeList[0 : Esize]* that label the vertices from 0, 1, . . . , *Vsize−1* and edges from 0, 1, . . . , *Esize−1*, respectively. The last “fake” vertex (*First Vertex[Vsize] = Esize*) points to the null “fake” edge with ”null” value (*Edge[Esize] = −1*). This is the Forward Star data structure discussed in class.
 
 Sample output for *graph_20_42.txt*:
 
@@ -28,7 +29,7 @@ The problem is that this graph is enormous. To illustrate, for a 10 × 10 board,
 Fortunately, when we use Depth First Search, we don’t have to enumerate this graph. We just know how to transition from one solution to the next layer by adding a queen. The DFS recursion keeps track of the partial solution to date, and returns with a full solution. The problem is thus reduced to finding a path from the root node (an empty board with no queens) to solution with n queens on an n × n board.
 
 Note the following:
-* For an n × n board, a vertex in this problem can be characterized as a set of positions of queens on the board.
+* For an n × n board, a vertex in this problem can be characterised as a set of positions of queens on the board.
 * Assume that one is at a vertex which is at level k in the problem, so that there are Queens on the first k rows. Then, the children of this vertex have first k queens in the same position, plus one additional queen in column k + 1, but only if the additional queen is placed in a location where it cannot be captured. Thus, one has to check whether that position in the next level for that queen is one that cannot be captured by any of the queens in the previous columns.
 
 __This works for boards that are bigger than 3 by 3__
