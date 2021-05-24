@@ -1,4 +1,4 @@
-# <ins>Graph Traversals</ins>
+# <ins>3. Graph Traversals</ins>
 ### <ins>Problem 1: Finding Connected Components</ins>
 In this problem, you will search two undirected Graphs, to find the connected components. You will output a vector which is of the length number of vertices, where each vertex will be assigned the number of the component the vertex is in, from 1 to total number of components. You will need to complete the two functions to do Breadth First Search of the graph, as well as Depth First Search.
 
