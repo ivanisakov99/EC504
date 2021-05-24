@@ -1,4 +1,4 @@
-# <ins> Priority Queues & String Matching</ins>
+# <ins>2. Priority Queues & String Matching</ins>
 ### <ins>Problem 1: Min-Heap Binary Priority Queue</ins>
 In this exercise, you are to implement an unusual min-heap binary priority queue. As mentioned in class, the standard class implementations of heaps often fall short of what is needed for algorithms, and are slow. The main program, *main.cpp*, creates an array of records called heapItems, with keys. Each record also holds an index field, *position*, that points to its current in the heap array.
 
