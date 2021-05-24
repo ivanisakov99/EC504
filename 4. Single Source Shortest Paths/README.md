@@ -1,10 +1,11 @@
+# <ins>Single Source Shortest Paths</ins>
 ### <ins>Problem 1: Finding Shortest Paths</ins>
 In this problem, you will implement three versions of shortest path algorithms: a simple version of Dijkstra’s algorithm using a list instead of a priority queue, a version of 
 Dijkstra’s algorithm that uses a binary heap as a priority queue, and a version of Bellman-Ford algorithm that uses a work queue.
 
-__Shortest paths.cpp__ is the main program with all the timing routines included. It reads a directed graph from a file. It loads the information into an array of vertices called Nodes. Associated with each node is a linked list of edges (arcs). The Node structure and the arc structure are defined in an include file __shortPath.h__ , along with the three shortest path algorithms that need to be developed.
+*Shortest paths.cpp* is the main program with all the timing routines included. It reads a directed graph from a file. It loads the information into an array of vertices called Nodes. Associated with each node is a linked list of edges (arcs). The Node structure and the arc structure are defined in an include file *shortPath.h* , along with the three shortest path algorithms that need to be developed.
 
-A makefile is included. To compile your executable, simply type __make shortest__. Three different input graphs are provided: Graph1.txt, Graph2.txt, Graph3.txt. A fourth input graph, smallgraph.txt, is provided along with the output file smallgraph1.txt out to help you with debugging.
+A makefile is included. To compile your executable, simply type *make shortest*. Three different input graphs are provided: Graph1.txt, Graph2.txt, Graph3.txt. A fourth input graph, smallgraph.txt, is provided along with the output file smallgraph1.txt out to help you with debugging.
 
 Note that the vertices in the input files are numbered from 1 to *Nm*. The Nodes[] data structure hence ignores the Nodes[0] element, so that an index equals to the node id. The element Nodes[0] has no information, and should not be used in any of the algorithms.
 
