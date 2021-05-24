@@ -1,4 +1,4 @@
-# <ins>Single Source Shortest Paths</ins>
+# <ins>4. Single Source Shortest Paths</ins>
 ### <ins>Problem 1: Finding Shortest Paths</ins>
 In this problem, you will implement three versions of shortest path algorithms: a simple version of Dijkstra’s algorithm using a list instead of a priority queue, a version of 
 Dijkstra’s algorithm that uses a binary heap as a priority queue, and a version of Bellman-Ford algorithm that uses a work queue.
