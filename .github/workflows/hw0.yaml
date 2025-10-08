@@ -10,9 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Test
-        run: ls -R
       - name: Build & run programme
-        run: make -C hw0 all
+        run: make -C '0. Integer Power' all
       - name: Run programme
-        run: cd hw0 && ./power
+        run: cd '0. Integer Power' && ./power
