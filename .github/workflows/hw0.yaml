@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build & run programme
-        run: make -C '0. Integer Power' all
+        run: make -C hw0 all
       - name: Run programme
-        run: cd '0. Integer Power' && ./power
+        run: cd hw0 && ./power
