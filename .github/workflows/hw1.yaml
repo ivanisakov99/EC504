@@ -1,0 +1,22 @@
+name: HW1 - Sorting & Top-Down Splay Trees
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build programme
+        run: make -C '1. Sorting & Top-Down Splay Trees' all
+      - name: Build Sort
+        run: make -C '1. Sorting & Top-Down Splay Trees' sort
+      - name: Run Sort
+        run: cd '1. Sorting & Top-Down Splay Trees' && ./sort
+      - name: Build Top Down Splay
+        run: make -C '1. Sorting & Top-Down Splay Trees' topdownsplay
+      - name: Run Sort
+        run: cd '1. Sorting & Top-Down Splay Trees' && ./topdownsplay
