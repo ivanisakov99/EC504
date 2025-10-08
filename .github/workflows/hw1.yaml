@@ -12,11 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build programme
         run: make -C '1. Sorting & Top-Down Splay Trees' all
-      - name: Build Sort
-        run: make -C '1. Sorting & Top-Down Splay Trees' sort
       - name: Run Sort
         run: cd '1. Sorting & Top-Down Splay Trees' && ./sort
-      - name: Build Top Down Splay
-        run: make -C '1. Sorting & Top-Down Splay Trees' topdownsplay
-      - name: Run Sort
+      - name: Run Top-Down Splay Trees
         run: cd '1. Sorting & Top-Down Splay Trees' && ./topdownsplay
